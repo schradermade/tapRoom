@@ -4,21 +4,21 @@ import Keg from "./Keg";
 const masterTicketList = [
   {
     name: "Hophoria",
-    brand = "Evasion Brewery",
-    price = "$3",
-    abv = "6.1"
+    brand: "Evasion Brewery",
+    price: "$3",
+    abv: "6.1"
   },
   {
     name: "GF IPA",
-    brand = "GroundBreaker",
-    price = "$4",
-    abv = "5.0"
+    brand: "GroundBreaker",
+    price: "$4",
+    abv: "5.0"
   },
   {
     name: "Omission",
-    brand = "Deschutes Brewery",
-    price = "$3.50",
-    abv = "4.5"
+    brand: "Deschutes Brewery",
+    price: "$3.50",
+    abv: "4.5"
   }
 ];
 
