@@ -1,7 +1,7 @@
 import React from "react";
+  import PropTypes from "prop-types";
 
 function Keg(props)  {
-  const name = "Evasion";
   return (
     <React.Fragment>
       <h1>{props.name} - {props.brand}</h1>
@@ -10,5 +10,12 @@ function Keg(props)  {
     </React.Fragment>
   );
 }
+
+Keg.propTypes = {
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  abv: PropTypes.string,
+  price: PropTypes.string
+};
 
 export default Keg;
