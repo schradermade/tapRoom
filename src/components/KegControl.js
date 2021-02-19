@@ -41,6 +41,10 @@ class KegControl extends React.Component {
     this.setState({selectedKeg: selectedKeg});
   }
 
+  handlePouringSelectedKeg = (id) => {
+    console.log("pour a pint");
+  }
+
   render()  {
     let currentlyVisibleState = null;
     let buttonText = null;
