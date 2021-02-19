@@ -8,6 +8,7 @@ function KegList(props)  {
       {props.kegList.map((keg)  =>
         <Keg
             whenKegClicked = { props.onKegSelection }
+            whenKegPoured = {props.onKegPour}
             name={keg.name}
             brand={keg.brand}
             price={keg.price}
