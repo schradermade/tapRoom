@@ -7,8 +7,28 @@ function KegDetail(props)  {
   return(
     <React.Fragment>
       <h1>Keg Detail</h1>
-      <h3>{keg.name} - {keg.brand}</h3>
-      <h3>{keg.abv} - {keg.price}</h3>
+      <table border=".5px solid black" width="60%">
+        <thead>
+          <tr>
+            <th>Beer</th>
+            <th>Brand</th>
+            <th>ABV</th>
+            <th>Price</th>
+            <th>Pints Remaining</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{keg.name}</td>
+            <td>{keg.brand}</td>
+            <td>{keg.abv}</td>
+            <td>{keg.price}</td>
+            <td>{keg.count}</td>
+            <td><button onClick = {() => props.onKegPour(props.id)}>Pour a Pint</button></td>
+          </tr>
+        </tbody>
+      </table>
     </React.Fragment>
   );
 }
