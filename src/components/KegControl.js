@@ -10,8 +10,14 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       masterKegList: [],
-      selectedKeg: null
+      selectedKeg: null,
+      count: 124
     };
+    this.decrement = this.decrement.bind(this);
+  }
+
+  decrement() {
+    this.setState({ count: this.state.count - 1 })
   }
 
   handleClick = () => {
@@ -67,6 +73,8 @@ class KegControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <button onClick = {this.handleClick}>{buttonText}</button>
+        <button onClick = {this.decrement}>Pour</button>
+        <h1>Ounces Remaining: {this.state.count}</h1>
       </React.Fragment>
     );
   }
