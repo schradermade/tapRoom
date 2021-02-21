@@ -11,13 +11,15 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterKegList: [],
       selectedKeg: null,
-      count: 124
+      count: 160
     };
     this.decrement = this.decrement.bind(this);
   }
 
   decrement() {
-    this.setState({ count: this.state.count - 1 })
+    if (this.state.count >= 16) {
+      this.setState({ count: this.state.count - 16 })
+    }
   }
 
   handleClick = () => {
