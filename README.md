@@ -41,9 +41,7 @@ This project was created in Week 15 of the Epicodus Coding School, using React. 
 <br><br>
 
 # 🔎 Component Diagram
-<img src="https://drive.google.com/file/d/1rhL2ozXIVrOlL_9GFdq5N3dYYXyqhimZ/view?usp=sharing">
-
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fnews%2Fworld-europe-53294245&psig=AOvVaw1m8d6vxzadfhQ3w7lK_cta&ust=1613675788028000&source=images&cd=vfe&ved=2ahUKEwj73aXy0PHuAhWDlp4KHXjwAcUQjRx6BAgAEAc">
+<img src="src/components/compDiagram.png">
 <br><br>
 
 # 🛠 Technologies Used
