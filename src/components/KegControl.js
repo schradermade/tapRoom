@@ -11,15 +11,9 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterKegList: [],
       selectedKeg: null,
-      count: 160
+      //count: 160
     };
-    this.decrement = this.decrement.bind(this);
-  }
-
-  decrement() {
-    if (this.state.count >= 16) {
-      this.setState({ count: this.state.count - 16 })
-    }
+    // this.handlePouringSelectedKeg = this.handlePouringSelectedKeg.bind(this);
   }
 
   handleClick = () => {
@@ -50,7 +44,9 @@ class KegControl extends React.Component {
   }
 
   handlePouringSelectedKeg = (id) => {
-    console.log("pour a pint");
+    if (this.selectedKeg.count >= 16) {
+      this.setState({ count: this.state.count - 16 })
+    }
   }
 
   render()  {
@@ -59,7 +55,8 @@ class KegControl extends React.Component {
     if (this.state.selectedKeg != null)  {
       currentlyVisibleState = 
         <KegDetail
-          keg = {this.state.selectedKeg} />
+          keg = {this.state.selectedKeg}
+          onKegPour= {this.handlePouringSelectedKeg} />
           buttonText = "Return to Keg List";
       
     } else if (this.state.formVisibleOnPage)  {
@@ -75,8 +72,8 @@ class KegControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <button onClick = {this.handleClick}>{buttonText}</button>
-        <button onClick = {this.decrement}>Pour</button>
-        <h1>Ounces Remaining: {this.state.count}</h1>
+        {/* <button onClick = {this.handlePouringSelectedKeg}>Pour</button> */}
+        {/* <h1>Ounces Remaining: {this.state.count}</h1> */}
       </React.Fragment>
     );
   }

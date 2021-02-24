@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 function KegDetail(props)  {
   const { keg } = props;
+
   
   return(
     <React.Fragment>
@@ -20,12 +21,12 @@ function KegDetail(props)  {
         </thead>
         <tbody>
           <tr>
-            <td>{keg.name}</td>
-            <td>{keg.brand}</td>
+            <td>{props.keg.name}</td>
+            <td>{props.keg.brand}</td>
             <td>{keg.abv}</td>
             <td>{keg.price}</td>
             <td>{keg.count}</td>
-            <td><button onClick = {() => props.onKegPour(props.id)}>Pour a Pint</button></td>
+            <td><button onClick = {() => props.onKegPour(keg.id)}>Pour a Pint</button></td>
           </tr>
         </tbody>
       </table>

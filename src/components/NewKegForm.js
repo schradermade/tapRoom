@@ -5,7 +5,14 @@ import PropTypes from "prop-types";
 function NewKegForm(props)  {
   function handleNewKegFormSubmission(event)  {
     event.preventDefault();
-    props.onNewKegCreation({ name: event.target.name.value, brand: event.target.brand.value, price: event.target.price.value, abv: event.target.abv.value, id: v4() });
+    props.onNewKegCreation({ 
+      name: event.target.name.value, 
+      brand: event.target.brand.value,
+      price: event.target.price.value, 
+      abv: event.target.abv.value,
+      count: parseInt(event.target.count.value),
+      id: v4()
+    });
   }
 
   return (
@@ -15,22 +22,27 @@ function NewKegForm(props)  {
           type = "text"
           name = "name"
           placeholder = "Beer Name"
-          value = "Hophoria IPA" />
+          defaultValue = "Hophoria IPA" />
         <input
           type = "text"
           name = "brand"
           placeholder = "brand"
-          value = "Evasion Brewing" />
+          defaultValue = "Evasion Brewing" />
         <input
           type = "text"
           name = "price"
           placeholder = "price"
-          value = "$5" />
+          defaultValue = "$5" />
         <input
           type = "text"
           name = "abv"
           placeholder = "ABV"
-          value = "6.1%" />
+          defaultValue = "6.1%" />
+        <input
+          type = "number"
+          name = "count"
+          placeholder = "Count"
+          defaultValue = "5" />
         <button type="submit">Tap the Keg</button>
       </form>
     </React.Fragment>
