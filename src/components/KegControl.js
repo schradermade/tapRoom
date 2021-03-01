@@ -45,9 +45,28 @@ class KegControl extends React.Component {
 
   handlePouringSelectedKeg = (id) => {
     if (this.selectedKeg.count >= 16) {
-      this.setState({ count: this.state.count - 16 })
-    }
-  }
+      const pouredMasterKegList = this.state.masterKegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      
+      this.setState({
+          count: count - 16,
+          masterKegList: pouredMasterKegList,
+          selectedKeg: null
+    });
+
+  };
+}
+
+  // handlePouringSelectedKeg = (ticketToEdit) => { // you are not taking in a full ticket object, instead just an id, so you need to use that id to access the masterKegList at the correct location
+  //   const editedMasterTicketList = this.state.masterTicketList
+  //     .filter(ticket => ticket.id !== this.state.selectedTicket.id)
+  //     .concat(ticketToEdit);
+  //   this.setState({
+  //       masterTicketList: editedMasterTicketList,
+  //       editing: false, // you don't have edit functionality, so this is irrelevant
+  //       selectedTicket: null // you may want to stay on the details view, by setting this value to the new updated selectTicket data
+  //     });
+  // }
 
   render()  {
     let currentlyVisibleState = null;
