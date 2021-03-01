@@ -81,7 +81,7 @@ To view or edit the code, you will need a code editor or text editor. Popular op
 ### Install Dependencies
 
 4. With the project now opened in your code editor, use the terminal to navigate to the “__tap-room__" folder of the project and run this command:
-    - `npm install --save-exact react-scripts@3.2.0`
+    - `npm install`
 
 ### Run Application Locally
 5. After running the `npm` command above, the project is ready to run locally. To run the application in your internet browser, type this command in your code editor's Terminal:
