@@ -39,10 +39,10 @@ function NewKegForm(props)  {
           placeholder = "ABV"
           defaultValue = "6.1%" />
         <input
-          type = "number"
+          type = "text"
           name = "count"
           placeholder = "Count"
-          defaultValue = "5" />
+          defaultValue = "3" />
         <button type="submit">Tap the Keg</button>
       </form>
     </React.Fragment>
