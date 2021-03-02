@@ -10,10 +10,8 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       masterKegList: [],
-      selectedKeg: null,
-      //count: 160
+      selectedKeg: null
     };
-    // this.handlePouringSelectedKeg = this.handlePouringSelectedKeg.bind(this);
   }
 
   handleClick = () => {
@@ -43,56 +41,44 @@ class KegControl extends React.Component {
     this.setState({selectedKeg: selectedKeg});
   }
 
-  handlePouringSelectedKeg = (id) => {
-    if (this.selectedKeg.count >= 16) {
-      const pouredMasterKegList = this.state.masterKegList
-      .filter(keg => keg.id !== this.state.selectedKeg.id)
-      
-      this.setState({
-          count: count - 16,
-          masterKegList: pouredMasterKegList,
-          selectedKeg: null
-    });
-
+  handlePouringSelectedKeg = () => {
+    const countOfKeg = this.state.selectedKeg.count;
+    const restockedKeg = {
+      ...this.state.selectedKeg,
+      count: countOfKeg - 1,
+    };
+    const newMasterList = this.state.masterKegList
+      .filter((keg) => keg.id !== this.state.selectedKeg.id)
+      .concat(restockedKeg);
+    this.setState({ selectedKeg: restockedKeg, masterKegList: newMasterList });
   };
-}
-
-  // handlePouringSelectedKeg = (ticketToEdit) => { // you are not taking in a full ticket object, instead just an id, so you need to use that id to access the masterKegList at the correct location
-  //   const editedMasterTicketList = this.state.masterTicketList
-  //     .filter(ticket => ticket.id !== this.state.selectedTicket.id)
-  //     .concat(ticketToEdit);
-  //   this.setState({
-  //       masterTicketList: editedMasterTicketList,
-  //       editing: false, // you don't have edit functionality, so this is irrelevant
-  //       selectedTicket: null // you may want to stay on the details view, by setting this value to the new updated selectTicket data
-  //     });
-  // }
 
   render()  {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.selectedKeg != null)  {
-      currentlyVisibleState = 
+      currentlyVisibleState = (
         <KegDetail
           keg = {this.state.selectedKeg}
-          onKegPour= {this.handlePouringSelectedKeg} />
-          buttonText = "Return to Keg List";
-      
+          onKegPour={this.handlePouringSelectedKeg}
+      />
+    );
+    buttonText = "Return to Keg List"; 
     } else if (this.state.formVisibleOnPage)  {
       currentlyVisibleState = <NewKegForm onNewKegCreation = {this.handleAddingNewKegToList} />;
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList  kegList = {this.state.masterKegList} 
-                                        //onKegSelection = {this.handleChangingSelectedKeg} 
-                                        onKegPour = {this.handlePouringSelectedKeg} />;
+      currentlyVisibleState = 
+        <KegList kegList = 
+          {this.state.masterKegList} 
+          onKegSelection = {this.handleChangingSelectedKeg} 
+          onKegPour = {this.handlePouringSelectedKeg} />;
       buttonText = "Add Keg";
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
         <button onClick = {this.handleClick}>{buttonText}</button>
-        {/* <button onClick = {this.handlePouringSelectedKeg}>Pour</button> */}
-        {/* <h1>Ounces Remaining: {this.state.count}</h1> */}
       </React.Fragment>
     );
   }
