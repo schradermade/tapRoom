@@ -21,12 +21,12 @@ function KegDetail(props)  {
         </thead>
         <tbody>
           <tr>
-            <td>{props.keg.name}</td>
-            <td>{props.keg.brand}</td>
+            <td>{keg.name}</td>
+            <td>{keg.brand}</td>
             <td>{keg.abv}</td>
             <td>{keg.price}</td>
             <td>{keg.count}</td>
-            <td><button onClick = {() => props.onKegPour(keg.id)}>Pour a Pint</button></td>
+            <td><button hidden={keg.count === 0} onClick={() => props.onKegPour(keg.id)}>Pour a Pint</button></td>
           </tr>
         </tbody>
       </table>
