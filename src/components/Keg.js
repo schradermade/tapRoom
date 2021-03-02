@@ -22,7 +22,7 @@ function Keg(props)  {
             <td>{props.abv}</td>
             <td>{props.price}</td>
             <td>{props.count}</td>
-            <td><button onClick = {() => props.whenKegPoured(props.id)}>Pour a Pint</button></td>
+            {/* <td><button onClick = {() => props.whenKegPoured(props.id)}>Pour a Pint</button></td> */}
           </tr>
         </tbody>
       </table>
@@ -37,6 +37,7 @@ Keg.propTypes = {
   abv: PropTypes.string,
   price: PropTypes.string,
   count: PropTypes.number,
+  id: PropTypes.string,
   whenKegClicked: PropTypes.func,
   whenKegPoured: PropTypes.func
 };
